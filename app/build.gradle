@@ -80,4 +80,7 @@ dependencies {
     implementation "android.arch.lifecycle:extensions:1.1.1"
 
     implementation 'com.airbnb.android:lottie:3.4.2'
+    // implementation "androidx.drawerlayout:drawerlayout:1.0.0"
+    implementation "androidx.drawerlayout:drawerlayout:1.1.1"
+    implementation "androidx.annotation:annotation:1.1.0"
 }

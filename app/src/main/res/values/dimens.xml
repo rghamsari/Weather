@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_margin">24dp</dimen>
+    <dimen name="cars_corner">32dp</dimen>
+    <dimen name="temperatures_size">56sp</dimen>
+    <dimen name="content_constraint_marging">32dp</dimen>
+    <dimen name="wind_size">32sp</dimen>
+    <dimen name="wind_marginBooten">72dp</dimen>
+    <dimen name="wind_marginleft">32dp</dimen>
+    <dimen name="humidity_marginbottom">18dp</dimen>
+    <dimen name="condition_margintop">16dp</dimen>
+    <dimen name="animation_size">150dp</dimen>
+</resources>
