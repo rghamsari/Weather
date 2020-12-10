@@ -1,67 +1,51 @@
 package com.ghamsari.weather.Model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Weather {
-    private double lon;
-    private double lat;
+    @SerializedName("id")
+    @Expose
+    private Integer id;
+    @SerializedName("main")
+    @Expose
     private String main;
-    private double speed;
-    private double temp;
-    private int humidity;
+    @SerializedName("description")
+    @Expose
+    private String description;
+    @SerializedName("icon")
+    @Expose
+    private String icon;
 
-    public Weather() {
-
+    public Integer getId() {
+        return id;
     }
 
-    public Weather(double lon, double lat) {
-        this.lon = lon;
-        this.lat = lat;
-    }
-
-    public double getLon() {
-        return lon;
-    }
-
-    public double getLat() {
-        return lat;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getMain() {
         return main;
     }
 
-    public String getSpeed() {
-        return speed +" km/hr";
-    }
-
-    public double getTemp() {
-        return temp ;
-    }
-
-    public String getHumidity() {
-        return humidity + " %";
-    }
-
-    public void setLon(double lon) {
-        this.lon = lon;
-    }
-
-    public void setLat(double lat) {
-        this.lat = lat;
-    }
-
     public void setMain(String main) {
         this.main = main;
     }
 
-    public void setSpeed(double speed) {
-        this.speed = speed;
+    public String getDescription() {
+        return description;
     }
 
-    public void setTemp(double temp) {
-        this.temp = temp;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public void setHumidity(int humidity) {
-        this.humidity = humidity;
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 }
