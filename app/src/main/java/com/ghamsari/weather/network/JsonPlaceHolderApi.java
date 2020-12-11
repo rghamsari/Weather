@@ -12,6 +12,6 @@ import retrofit2.http.Query;
 
 public interface JsonPlaceHolderApi {
     @GET("weather")
-    Single <List<WeatherDto>> getWeather(@Query("lat") double lat ,@Query("lon") double lon ,@Query("units") String units,
+    Single <List<WeatherDto>> getWeather(@Query("lat") String lat ,@Query("lon") String lon ,@Query("units") String units,
                                          @Query("appid") String key);
 }
