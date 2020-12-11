@@ -1,4 +1,4 @@
-package com.ghamsari.weather.Model;
+package com.ghamsari.weather.model;
 
 public class DatabaseWeather {
     private double Lon;

@@ -1,11 +1,11 @@
-package com.ghamsari.weather.Model;
+package com.ghamsari.weather.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Example {
+public class WeatherDto {
     @SerializedName("coord")
     @Expose
     private Coord coord;
