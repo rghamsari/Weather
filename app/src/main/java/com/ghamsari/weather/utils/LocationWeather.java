@@ -1,4 +1,4 @@
-package com.ghamsari.weather.view;
+package com.ghamsari.weather.utils;
 
 import android.Manifest;
 import android.app.Activity;
@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-public class WeatherView {
+public class LocationWeather {
     private  Context context;
     private Activity activity;
 
@@ -54,13 +54,13 @@ public class WeatherView {
                 context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
         } else {
-            Location locationGPS = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            android.location.Location locationGPS = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
             if (locationGPS != null) {
                 double lat = locationGPS.getLatitude();
                 double longi = locationGPS.getLongitude();
                 latitude = String.valueOf(lat);
                 longitude = String.valueOf(longi);
-              //  Toast.makeText(context,"Your Location: " + "\n" + "Latitude: " + latitude + "\n" + "Longitude: " + longitude , Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(context,"Your LocationWeather: " + "\n" + "Latitude: " + latitude + "\n" + "Longitude: " + longitude , Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(context, "Unable to find location.", Toast.LENGTH_SHORT).show();
             }
