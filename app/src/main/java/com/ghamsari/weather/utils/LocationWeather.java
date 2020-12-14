@@ -12,6 +12,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.provider.Settings;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -93,7 +94,9 @@ public class LocationWeather {
                 double longi = locationGPS.getLongitude();
                 DataHolder dataHolder =new DataHolder();
                 dataHolder.setLat(String.valueOf(lat));
+                Log.i("myappdataholder","your log is" +lat );
                 dataHolder.setLon(String.valueOf(longi));
+                Log.i("myappdataholder","your log is" +longi );
 
 
              } else {

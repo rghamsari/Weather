@@ -1,22 +1,26 @@
 package com.ghamsari.weather.utils;
 
-public class DataHolder {
-    private String lat ;
-    private String lon ;
+import android.util.Log;
 
-    public String getLat() {
+public class DataHolder {
+    private  static String lat ;
+    private  static String lon ;
+
+    public static String getLat() {
         return lat;
     }
 
-    public String getLon() {
+    public static String getLon() {
         return lon;
     }
 
     public void setLat(String lat) {
         this.lat = lat;
+        Log.i("my app dataholder","your log is" +lat );
     }
 
     public void setLon(String lon) {
         this.lon = lon;
+        Log.i("my app dataholder","your log is" +lon);
     }
 }

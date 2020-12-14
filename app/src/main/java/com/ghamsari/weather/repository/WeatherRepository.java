@@ -10,7 +10,7 @@ import com.ghamsari.weather.model.WeatherDto;
 import com.ghamsari.weather.network.ApiClient;
 import com.ghamsari.weather.network.JsonPlaceHolderApi;
 import com.ghamsari.weather.utils.DataHolder;
-
+import android.util.Log;
 import java.util.List;
 
 import io.reactivex.Scheduler;
@@ -29,8 +29,8 @@ public class WeatherRepository {
        jsonPlaceHolderApi = ApiClient.getRetrofitInstance().create(JsonPlaceHolderApi.class);
     }
     public LiveData<List<WeatherDto>> getLocationWeatherDitel () {
-        DataHolder dataHolder =new DataHolder();
-        jsonPlaceHolderApi.getWeather(dataHolder.getLat(), dataHolder.getLon(), "metric", "6ff87ae2cecff28bf3919d0106f692fb").subscribeOn(Schedulers.io()).
+        Log.i("my app location","your log is " +DataHolder.getLat());
+        jsonPlaceHolderApi.getWeather(DataHolder.getLat(), DataHolder.getLon(), "metric", "6ff87ae2cecff28bf3919d0106f692fb").subscribeOn(Schedulers.io()).
                 observeOn(AndroidSchedulers.mainThread()).subscribe(new DisposableObserver<List<WeatherDto>>() {
             @Override
             public void onNext(@NonNull List<WeatherDto> weatherDtos) {
