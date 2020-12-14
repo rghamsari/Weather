@@ -13,8 +13,8 @@ public class WeatherViewModel extends ViewModel {
     private WeatherRepository repository;
     private MutableLiveData<List<WeatherDto>> mWeatherDeo;
 
-    public WeatherViewModel(String lat , String lon) {
-        mWeatherDeo = (MutableLiveData<List<WeatherDto>>) repository.getLocationWeatherDitel(lat,lon);
+    public WeatherViewModel() {
+        mWeatherDeo = (MutableLiveData<List<WeatherDto>>) repository.getLocationWeatherDitel();
     }
 
     public LiveData<List<WeatherDto>> getWeatherDeo(){

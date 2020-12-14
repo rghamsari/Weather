@@ -16,7 +16,12 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
+import androidx.lifecycle.LiveData;
 
+import com.ghamsari.weather.R;
+import com.ghamsari.weather.model.Weather;
+import com.ghamsari.weather.model.WeatherDto;
+import com.ghamsari.weather.viewmodel.WeatherViewModel;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -32,7 +37,35 @@ public class LocationWeather {
 
     private static final int REQUEST_LOCATION = 1;
     LocationManager locationManager;
-    String latitude, longitude;
+
+    public int showAnimation (int code) {
+        int Code = code / 100;
+
+        switch (Code) {
+            case 2:
+                return R.raw.storm_weather;
+            case 3:
+                return R.raw.rainy_weather;
+            case 4:
+                return R.raw.snow_weather;
+            case 5:
+                return R.raw.unknown;
+            case 6:
+                return R.raw.clear_day;
+            case 7:
+                return R.raw.broken_clouds;
+            case 8:
+                return R.raw.broken_clouds;
+            default:
+                return R.raw.rainy_weather;
+
+        }
+
+    }
+
+
+
+
     public void getLocation(Activity activity){
         this.activity =activity;
         context =  activity.getApplicationContext();
@@ -58,10 +91,12 @@ public class LocationWeather {
             if (locationGPS != null) {
                 double lat = locationGPS.getLatitude();
                 double longi = locationGPS.getLongitude();
-                latitude = String.valueOf(lat);
-                longitude = String.valueOf(longi);
-              //  Toast.makeText(context,"Your LocationWeather: " + "\n" + "Latitude: " + latitude + "\n" + "Longitude: " + longitude , Toast.LENGTH_SHORT).show();
-            } else {
+                DataHolder dataHolder =new DataHolder();
+                dataHolder.setLat(String.valueOf(lat));
+                dataHolder.setLon(String.valueOf(longi));
+
+
+             } else {
                 Toast.makeText(context, "Unable to find location.", Toast.LENGTH_SHORT).show();
             }
         }

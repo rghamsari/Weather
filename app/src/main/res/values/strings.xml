@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">Weather</string>
     <string name="humidity_size">56</string>
+    <array name="Weather">
+    <item name ="broken_cloud">broken_clouds.json</item>
+        <item name ="clear">clear_day.json</item>
+        <item name ="cloudy">cloudy_weather.json</item>
+        <item name ="few_cloud">few_clouds.json</item>
+        <item name ="mostly_cloud">mostly_cloudy.json</item>
+        <item name ="rainy">rainy_weather.json</item>
+        <item name ="shower">shower_rain.json</item>
+        <item name ="snow">snow_weather.json</item>
+        <item name = "storm">storm_weather.json</item>
+        <item name ="unknown">unknown.json</item>
+    </array>
+
 </resources>
