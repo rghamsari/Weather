@@ -14,19 +14,18 @@ import com.ghamsari.weather.utils.DataHolder;
 import java.util.List;
 
 public class WeatherViewModel extends ViewModel {
-    private WeatherRepository repository= new WeatherRepository();
-    private MutableLiveData<List<WeatherDto>> mWeatherDeo;
+    private WeatherRepository repository;
+    private LiveData<List<WeatherDto>> mWeatherDeo;
 
-    public void init() {
+    public WeatherViewModel() {
 
-      //  repository = new WeatherRepository();
+       repository = new WeatherRepository();
         Log.i("my app location","you are  in view model1");
-        mWeatherDeo = (MutableLiveData<List<WeatherDto>>) repository.getLocationWeatherDitel();
+        mWeatherDeo =  repository.getLocationWeatherDitel();
         Log.i("my app location","you are  in view model");
     }
 
     public LiveData<List<WeatherDto>> getWeatherDeo(){
-        mWeatherDeo = (MutableLiveData<List<WeatherDto>>) repository.getLocationWeatherDitel();
         return mWeatherDeo;
     }
 }

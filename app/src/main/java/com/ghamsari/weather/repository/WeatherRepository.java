@@ -22,19 +22,24 @@ import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 
 public class WeatherRepository {
-    private JsonPlaceHolderApi jsonPlaceHolderApi ;
-    private   MutableLiveData <List<WeatherDto>> mutableLiveData ;
+    private final JsonPlaceHolderApi jsonPlaceHolderApi ;
+    private   MutableLiveData <List<WeatherDto>> mutableLiveData = new MutableLiveData<>() ;
 
     public WeatherRepository() {
        jsonPlaceHolderApi = ApiClient.getRetrofitInstance().create(JsonPlaceHolderApi.class);
     }
     public LiveData<List<WeatherDto>> getLocationWeatherDitel () {
         Log.i("my app location","your log is " +DataHolder.getLat());
-        jsonPlaceHolderApi.getWeather(DataHolder.getLat(), DataHolder.getLon(), "metric", "6ff87ae2cecff28bf3919d0106f692fb").subscribeOn(Schedulers.io()).
-                observeOn(AndroidSchedulers.mainThread()).subscribe(new DisposableObserver<List<WeatherDto>>() {
+        jsonPlaceHolderApi.getWeather(DataHolder.getLat(),
+                DataHolder.getLon(),
+                "metric",
+                "6ff87ae2cecff28bf3919d0106f692fb")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new DisposableObserver<List<WeatherDto>>() {
             @Override
             public void onNext(@NonNull List<WeatherDto> weatherDtos) {
-                mutableLiveData.setValue(weatherDtos);
+                mutableLiveData.postValue(weatherDtos);
             }
 
             @Override

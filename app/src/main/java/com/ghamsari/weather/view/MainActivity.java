@@ -13,12 +13,13 @@ import com.ghamsari.weather.R;
 import com.ghamsari.weather.model.WeatherDto;
 import com.ghamsari.weather.utils.LocationWeather;
 import com.ghamsari.weather.viewmodel.WeatherViewModel;
+import com.ghamsari.weather.viewmodel.WeatherViewModelFactory;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 WeatherViewModel WeatherViewModel ;
-
+WeatherViewModelFactory weatherViewModelFactory;
     LocationWeather view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +50,7 @@ WeatherViewModel WeatherViewModel ;
     }
 
     private  void initViewModel (){
-        WeatherViewModel = ViewModelProviders.of(this).get(WeatherViewModel.class);
+        WeatherViewModel = ViewModelProviders.of(this,weatherViewModelFactory).get(WeatherViewModel.class);
 
 
     }
